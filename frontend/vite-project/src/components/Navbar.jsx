@@ -13,7 +13,7 @@ function Navbar() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("http://localhost:4000/check-auth", {
+        const response = await fetch("https://carrer-wave-backend.vercel.app/check-auth", {
           method: "GET",
           credentials: "include", 
         });
@@ -38,7 +38,7 @@ function Navbar() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:4000/logout", {
+      const response = await fetch("https://carrer-wave-backend.vercel.app/logout", {
         method: "POST",
         credentials: "include", 
       });

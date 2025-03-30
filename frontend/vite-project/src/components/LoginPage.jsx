@@ -13,7 +13,7 @@ function LoginPage() {
     const password = document.getElementById(`${userType}-password`).value;
   
     try {
-      const response = await fetch("http://localhost:4000/loginUser", {
+      const response = await fetch("https://carrer-wave-backend.vercel.app/loginUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

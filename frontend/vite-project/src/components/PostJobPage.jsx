@@ -28,7 +28,7 @@ function PostJobPage() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("http://localhost:4000/check-Auth", {
+        const response = await fetch("https://carrer-wave-backend.vercel.app/check-Auth", {
           method: "GET",
           credentials: "include",
         });
@@ -103,7 +103,7 @@ function PostJobPage() {
     }
     
     try {
-      const response = await fetch("http://localhost:4000/post-job", {
+      const response = await fetch("https://carrer-wave-backend.vercel.app/post-job", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

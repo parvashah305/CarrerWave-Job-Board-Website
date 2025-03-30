@@ -14,7 +14,7 @@ function JobsPage() {
     const fetchJobs = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:4000/get-job", {
+        const response = await fetch("https://carrer-wave-backend.vercel.app/get-job", {
           method: "GET",
           credentials: "include",
           headers: {

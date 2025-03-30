@@ -78,7 +78,7 @@ function SignUp() {
     };
   
     try {
-      const response = await fetch("http://localhost:4000/registerUser", {
+      const response = await fetch("https://carrer-wave-backend.vercel.app/registerUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
