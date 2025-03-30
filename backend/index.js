@@ -13,7 +13,9 @@ app.use(express.json())
 app.use(
     cors({
       origin: "https://carrer-wave.vercel.app",
-      credentials: true, // Allow sending cookies from the frontend
+      credentials: true, 
+      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type, Authorization"
     })
   );
 app.use(cookieParser())
