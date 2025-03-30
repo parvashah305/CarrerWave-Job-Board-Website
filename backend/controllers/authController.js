@@ -73,9 +73,9 @@ exports.loginUser=async(req,res)=>{
         )
 
         res.cookie("jwt", token, {
-            httpOnly: true,        
-            secure: process.env.NODE_ENV === "production", 
-            sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", 
+            httpOnly: true,
+            secure: true,  // Always true on Vercel (HTTPS by default)
+            sameSite: "None", // Required for cross-origin cookies
             maxAge: 24 * 60 * 60 * 1000, 
         });
 
