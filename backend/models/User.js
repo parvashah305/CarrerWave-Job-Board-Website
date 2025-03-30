@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  fname: {
+    type: String,
+    required: true,
+  },
+  lname: {
     type: String,
     required: true,
   },
@@ -28,12 +32,7 @@ const UserSchema = new mongoose.Schema({
       return this.role === "employer";
     },
   },
-  resume: {
-    type: String, 
-    required: function () {
-      return this.role === "candidate";
-    },
-  },
+  
 }, { timestamps: true });
 
 

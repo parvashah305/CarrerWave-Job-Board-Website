@@ -1,16 +1,21 @@
 const express =require('express')
 const mongoose=require('mongoose')
-const {registerUser,loginUser,protect,authorize,postJob,applyJob, getJob}= require('./controllers/authController')
+const {registerUser,loginUser,protect,authorize,postJob,applyJob, getJob, checkAuth, logout, getAllJobs, getJobById, getEmployerDashboard, getCandidateDashboard}= require('./controllers/authController')
 const cors=require('cors')
 const cookieParser=require('cookie-parser')
 const upload = require('./middlewares/uploadMiddleware')
 require('dotenv').config()
 
 const app=express()
-const PORT=3000
+const PORT=4000
 
 app.use(express.json())
-app.use(cors())
+app.use(
+    cors({
+      origin: "http://localhost:5173",
+      credentials: true, // Allow sending cookies from the frontend
+    })
+  );
 app.use(cookieParser())
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -23,9 +28,14 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.post('/registerUser',registerUser)
 app.post('/loginUser',loginUser)
+app.post('/logout',logout)
+app.get('/check-Auth',checkAuth)
 app.post('/post-job',protect,authorize(["employer"]),postJob)
-app.get('/get-job',getJob)
-app.post('/apply-job/:jobId',protect,authorize(["candidate"]),upload.fields([{name:'resume',maxCount:1},{name:'coverLetter',maxCount:1}]),applyJob)
+app.get('/get-job',getAllJobs)
+app.get('/get-job/:jobId',getJobById)
+app.post('/apply-job/:jobId',protect,authorize(["candidate"]),upload.fields([{name:'resume',maxCount:1}]),applyJob)
+app.get('/employer/dashboard', protect, authorize(["employer"]), getEmployerDashboard);
+app.get('/candidate/dashboard', protect, authorize(["candidate"]), getCandidateDashboard);
 
 app.listen(PORT,()=>{
     console.log(`Server Running on ${PORT}`)

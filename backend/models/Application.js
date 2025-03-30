@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const ApplicationSchema = new mongoose.Schema({
     jobId: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
     candidateId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    name:String,
+    fname:String,
+    lname:String,
     email:String,
     phoneNumber:String,
     resume: String,
