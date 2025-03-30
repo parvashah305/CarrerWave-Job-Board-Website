@@ -8,7 +8,7 @@ import EmployerDashboard from './components/EmployerDashboard';
 import CandidateDashboard from './components/CandidateDashboard';
 import PostJobPage from './components/PostJobPage';
 import LoginPage from './components/LoginPage';
-import SignUp from './components/Signup';
+import SignUp from './components/SignUp';
 import { ToastContainer } from 'react-toastify';
 
 function App() {
