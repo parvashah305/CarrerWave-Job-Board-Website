@@ -12,7 +12,7 @@ const PORT=4000
 app.use(express.json())
 app.use(
     cors({
-      origin: "http://localhost:5173",
+      origin: "https://carrer-wave.vercel.app",
       credentials: true, // Allow sending cookies from the frontend
     })
   );
