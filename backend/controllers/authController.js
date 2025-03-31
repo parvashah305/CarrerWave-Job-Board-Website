@@ -76,6 +76,8 @@ exports.loginUser=async(req,res)=>{
             httpOnly: true,        
             secure: process.env.NODE_ENV === "production", 
             sameSite: "None", 
+            domain:'.vercel.com',
+            path:'/',
             maxAge: 24 * 60 * 60 * 1000, 
         });
 
