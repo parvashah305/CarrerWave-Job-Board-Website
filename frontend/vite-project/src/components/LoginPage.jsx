@@ -32,7 +32,8 @@ function LoginPage() {
       else{
         toast.success("Login Successful!"
          );
-         console.log(data)
+        //  console.log(data)
+         
         setTimeout(()=>{
            
             window.location.reload()
@@ -40,11 +41,11 @@ function LoginPage() {
       }
   
       // Navigate user based on their type
-      // if (userType === "employer") {
-      //   navigate("/employer/dashboard");
-      // } else {
-      //   navigate("/candidate/dashboard");
-      // }
+      if (userType === "employer") {
+        navigate("/employer/dashboard");
+      } else {
+        navigate("/candidate/dashboard");
+      }
     } catch (error) {
       console.error("Login error:", error);
       alert("Something went wrong. Please try again.");
